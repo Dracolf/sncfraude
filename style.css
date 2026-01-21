@@ -1,0 +1,110 @@
+/* =========================
+   Variables (DA SNCF-like)
+   ========================= */
+:root {
+    --sncf-red: #e00034;
+    --sncf-dark: #2b2b2b;
+    --sncf-gray: #6f6f6f;
+    --background: #f5f6f7;
+    --white: #ffffff;
+}
+
+/* Reset léger */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background-color: var(--background);
+    color: var(--sncf-dark);
+    line-height: 1.5;
+}
+
+/* =========================
+   Header
+   ========================= */
+.header {
+    background-color: var(--sncf-red);
+    padding: 16px 32px;
+}
+
+.logo {
+    color: white;
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: 0.5px;
+}
+
+/* =========================
+   Contenu principal
+   ========================= */
+.container {
+    max-width: 1100px;
+    margin: 48px auto;
+    padding: 0 24px;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.highlight {
+    color: var(--sncf-red);
+}
+
+/* =========================
+   Cartes de statistiques
+   ========================= */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    border-left: 6px solid var(--sncf-red);
+}
+
+.card h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--sncf-gray);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.stat-value {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--sncf-dark);
+}
+
+/* Variantes */
+.stat-value.late {
+    color: #ff9800;
+}
+
+.stat-value.cancelled {
+    color: #d32f2f;
+}
+
+/* =========================
+   Footer
+   ========================= */
+.footer {
+    margin-top: 20%;
+    padding: 24px;
+    text-align: center;
+    color: var(--sncf-gray);
+    font-size: 0.9rem;
+}

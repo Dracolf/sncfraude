@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNCFraude</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__brand">
+            <img src="logo.png" class="logo" width= 400 height= 79 alt="SNCFraude"/>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>
+            Les stats <span class="highlight">frauduleuses</span> de la SNCF  
+            <br>
+            en région <strong>Occitanie</strong> le mois dernier :
+        </h1>
+
+        <section class="stats">
+            <div class="card">
+                <h2>Trains programmés</h2>
+                <p id="NbProgrammed" class="stat-value"></p>
+            </div>
+
+            <div class="card">
+                <h2>Trains en retard</h2>
+                <p id="NbLate" class="stat-value late"></p>
+            </div>
+
+            <div class="card">
+                <h2>Trains annulés</h2>
+                <p id="NbCancelled" class="stat-value cancelled"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Projet non officiel – Données publiques SNCF</p>
+        <p>2026, Dracolf (Florian Pariel-Abadie)</p>
+    </footer>
+</body>
+</html>
