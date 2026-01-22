@@ -21,6 +21,10 @@ body {
     background-color: var(--background);
     color: var(--sncf-dark);
     line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
 }
 
 /* =========================
@@ -29,6 +33,8 @@ body {
 .header {
     background-color: var(--sncf-red);
     padding: 16px 32px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .logo {
@@ -42,7 +48,15 @@ body {
    Contenu principal
    ========================= */
 .container {
-    max-width: 1100px;
+    flex : 1;
+    width: 75%;
+    margin: 48px auto;
+    padding: 0 24px;
+}
+
+.container2 {
+    flex : 1;
+    width: 75%;
     margin: 48px auto;
     padding: 0 24px;
 }
@@ -99,10 +113,17 @@ h1 {
 }
 
 /* =========================
+   Cacher des éléments
+   ========================= */
+.hidden {
+    display: none;
+}
+
+/* =========================
    Footer
    ========================= */
 .footer {
-    margin-top: 20%;
+    /*margin-top: 20%;*/
     padding: 24px;
     text-align: center;
     color: var(--sncf-gray);
