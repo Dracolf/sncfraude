@@ -45,6 +45,59 @@ body {
 }
 
 /* =========================
+   Boutons pour switch de vue
+   ========================= */
+
+.viewSelect {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin: 32px auto 0;
+}
+
+/* Bouton de base */
+.switch {
+    font-family: "Inter", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 999px; /* pill style */
+    border: 2px solid var(--sncf-red);
+    background-color: transparent;
+    color: var(--sncf-red);
+    cursor: pointer;
+    transition: 
+        background-color 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.1s ease;
+}
+
+/* Hover */
+.switch:hover:not(:disabled) {
+    background-color: var(--sncf-red);
+    color: white;
+    box-shadow: 0 6px 16px rgba(224, 0, 52, 0.25);
+    transform: translateY(-1px);
+}
+
+/* Click */
+.switch:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(224, 0, 52, 0.25);
+}
+
+/* Bouton actif (vue sélectionnée) */
+.switch:disabled {
+    background-color: var(--sncf-red);
+    color: white;
+    border-color: var(--sncf-red);
+    cursor: default;
+    box-shadow: 0 6px 16px rgba(224, 0, 52, 0.3);
+    opacity: 1;
+}
+
+/* =========================
    Contenu principal
    ========================= */
 .container {
@@ -113,6 +166,27 @@ h1 {
 }
 
 /* =========================
+   Vidéo Macron Explosion
+   ========================= */
+
+.divVideo {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* =========================
+   Cadre du graphique
+   ========================= */
+
+.chart-wrapper {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* =========================
    Cacher des éléments
    ========================= */
 .hidden {
@@ -123,7 +197,6 @@ h1 {
    Footer
    ========================= */
 .footer {
-    /*margin-top: 20%;*/
     padding: 24px;
     text-align: center;
     color: var(--sncf-gray);

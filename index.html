@@ -6,7 +6,8 @@
     <title>SNCFraude</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="index.js" defer></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="index.js"></script>
 </head>
 
 <body>
@@ -14,8 +15,12 @@
         <div class="header__brand">
             <img src="logo.png" class="logo" width= 300 height= 59 alt="SNCFraude"/>
         </div>
-        <button id="switch">Hey mon gars</button>
     </header>
+
+    <nav class="viewSelect">
+        <button class="switch" id="btnMonth" disabled>Mensuelles</button>
+        <button class="switch" id="btnYear">Annuelles</button>
+    </nav>
 
     <main class="container">
         <h1>
@@ -40,6 +45,12 @@
                 <p id="NbCancelled" class="stat-value cancelled"></p>
             </div>
         </section>
+
+        <div class ="divVideo">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/gpb4_LAd6fQ?si=ODnDuOaNOq8d4K6B&autoplay=1&mute=1" title="YouTube video player" 
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
     </main>
     <main class="container2 hidden">
         <h1>
@@ -48,44 +59,14 @@
             en région <strong>Occitanie</strong> sur l'année <span id="titleYear"></span> :
         </h1>
 
-        <h2>Janvier :</h2>
-        <p id="01">Annulés : </p>
+        <div class="chart-wrapper">
+            <canvas id="barCanvas" aria-label="chart" role="img"></canvas>
+        </div>
 
-        <h2>Février :</h2>
-        <p id="02">Annulés : </p>
-
-        <h2>Mars :</h2>
-        <p id="03">Annulés : </p>
-
-        <h2>Avril :</h2>
-        <p id="04">Annulés : </p>
-
-        <h2>Mai :</h2>
-        <p id="05">Annulés : </p>
-
-        <h2>Juin :</h2>
-        <p id="06">Annulés : </p>
-
-        <h2>Juillet :</h2>
-        <p id="07">Annulés : </p>
-
-        <h2>Août :</h2>
-        <p id="08">Annulés : </p>
-
-        <h2>Septembre :</h2>
-        <p id="09">Annulés : </p>
-
-        <h2>Octobre :</h2>
-        <p id="10">Annulés : </p>
-
-        <h2>Novembre :</h2>
-        <p id="11">Annulés : </p>
-
-        <h2>Décembre :</h2>
-        <p id="12">Annulés : </p>
-
-        <h2 class="highlight">TOTAL</h2>
-        <p id="total">Annulés : </p>
+        <h2 class="highlight">TOTAL :</h2>
+        <p id="totalProg">Programmés : </p>
+        <p id="totalLate">En retard : </p>
+        <p id="totalCancel">Annulés : </p>
     </main>
 
 
