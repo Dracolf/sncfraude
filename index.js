@@ -1,3 +1,5 @@
+const cb = document.getElementById("yearSelect");
+
 // ===============================
 // Mois / Année précédente
 // ===============================
@@ -117,18 +119,40 @@ async function displayDataDecember() {
 }
 
 // ----------
+// Intéractions Combobox
+// ----------
+function loadCombobox() {
+  for (let i = year; i>=2018 ; i--) {
+    newOption = document.createElement("option");
+    newOption.setAttribute("value", i);
+    newOption.innerHTML = i;
+    cb.appendChild(newOption);
+  }
+}
+
+async function refreshYearStats() {
+  await loadYearStats();
+  updateChart();
+  showTotalYear();
+  document.getElementById("titleYear").textContent = cb.value;
+}
+
+loadCombobox();
+cb.onchange = refreshYearStats;
+
+// ----------
 // Stats annuelles (PARALLÈLE)
 // ----------
 async function loadYearStats() {
   statsByMonth.clear();
 
-  const promises = Array.from(mois.keys()).map((key) => fetchMonth(key));
+  const promises = Array.from(mois.keys()).map((key) => fetchMonth(cb.value, key));
   await Promise.all(promises);
 }
 
-async function fetchMonth(key) {
+async function fetchMonth(selectedYear, key) {
   const response = await fetch(
-    `https://ressources.data.sncf.com/api/v2/catalog/datasets/regularite-mensuelle-ter/records?refine=region:"Occitanie"&refine=date:"${year}-${key}"`
+    `https://ressources.data.sncf.com/api/v2/catalog/datasets/regularite-mensuelle-ter/records?refine=region:"Occitanie"&refine=date:"${selectedYear}-${key}"`
   );
 
   const data = await response.json();

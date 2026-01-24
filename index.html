@@ -18,7 +18,7 @@
     </header>
 
     <nav class="viewSelect">
-        <button class="switch" id="btnMonth" disabled>Mensuelles</button>
+        <button class="switch" id="btnMonth" disabled>Le mois dernier</button>
         <button class="switch" id="btnYear">Annuelles</button>
     </nav>
 
@@ -58,6 +58,9 @@
             <br>
             en région <strong>Occitanie</strong> sur l'année <span id="titleYear"></span> :
         </h1>
+
+        <label for="yearSelect">Sélectionnez une année : </label>
+        <select name="years" id="yearSelect"></select>
 
         <div class="chart-wrapper">
             <canvas id="barCanvas" aria-label="chart" role="img"></canvas>
