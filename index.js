@@ -122,7 +122,7 @@ async function displayDataDecember() {
 // Intéractions Combobox
 // ----------
 function loadCombobox() {
-  for (let i = year; i>=2018 ; i--) {
+  for (let i = year; i>=2013 ; i--) {
     newOption = document.createElement("option");
     newOption.setAttribute("value", i);
     newOption.innerHTML = i;

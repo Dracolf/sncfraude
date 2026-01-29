@@ -176,10 +176,10 @@ h1 {
 }
 
 /* =========================
-   Select (choix année)
+   Select (choix région et année)
    ========================= */
 
-#yearSelect {
+.select {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -202,11 +202,13 @@ h1 {
     background-size: 16px;
 
     transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    
+    margin-right : 20px;
 }
 
 
 /* Hover */
-#yearSelect:hover {
+.select:hover {
     background-color: var(--sncf-red);
     color: white;
 
@@ -215,7 +217,7 @@ h1 {
 
 
 /* Focus (accessibilité) */
-#yearSelect:focus {
+.select:focus {
     outline: none;
 }
 
