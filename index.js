@@ -1,9 +1,11 @@
-const cb = document.getElementById("yearSelect");
+const cbYear = document.getElementById("yearSelect");
+const cbRegion = document.getElementById("regionSelect")
 
 // ===============================
 // Mois / Année précédente
 // ===============================
 const { month, year } = getPreviousMonthAndYear();
+document.getElementById("titleRegion").textContent = "Occitanie";
 document.getElementById("titleYear").textContent = year;
 
 // ===============================
@@ -126,7 +128,7 @@ function loadCombobox() {
     newOption = document.createElement("option");
     newOption.setAttribute("value", i);
     newOption.innerHTML = i;
-    cb.appendChild(newOption);
+    cbYear.appendChild(newOption);
   }
 }
 
@@ -134,11 +136,13 @@ async function refreshYearStats() {
   await loadYearStats();
   updateChart();
   showTotalYear();
-  document.getElementById("titleYear").textContent = cb.value;
+  document.getElementById("titleRegion").textContent = cbRegion.options[cbRegion.selectedIndex].text;
+  document.getElementById("titleYear").textContent = cbYear.value;
 }
 
 loadCombobox();
-cb.onchange = refreshYearStats;
+cbRegion.onchange = refreshYearStats;
+cbYear.onchange = refreshYearStats;
 
 // ----------
 // Stats annuelles (PARALLÈLE)
@@ -146,13 +150,13 @@ cb.onchange = refreshYearStats;
 async function loadYearStats() {
   statsByMonth.clear();
 
-  const promises = Array.from(mois.keys()).map((key) => fetchMonth(cb.value, key));
+  const promises = Array.from(mois.keys()).map((key) => fetchMonth(cbRegion.value, cbYear.value, key));
   await Promise.all(promises);
 }
 
-async function fetchMonth(selectedYear, key) {
+async function fetchMonth(selectedRegion, selectedYear, key) {
   const response = await fetch(
-    `https://ressources.data.sncf.com/api/v2/catalog/datasets/regularite-mensuelle-ter/records?refine=region:"Occitanie"&refine=date:"${selectedYear}-${key}"`
+    `https://ressources.data.sncf.com/api/v2/catalog/datasets/regularite-mensuelle-ter/records?refine=region:"${selectedRegion}"&refine=date:"${selectedYear}-${key}"`
   );
 
   const data = await response.json();
@@ -175,6 +179,10 @@ async function fetchMonth(selectedYear, key) {
 // MAJ graphique
 // ----------
 function updateChart() {
+  const chart = document.querySelector(".chart-wrapper");
+  const noData = document.querySelector(".noData");
+  const totalSection = document.getElementById("totalSection");
+
   const retards = Array.from(mois.keys()).map(
     k => statsByMonth.get(k)?.[1] ?? 0
   );
@@ -186,7 +194,16 @@ function updateChart() {
   barChart.data.datasets[0].data = retards;
   barChart.data.datasets[1].data = annules;
 
-  barChart.update();
+  if (retards[0] == 0 && retards[11] == 0 && annules[0] == 0 && annules[11] == 0) {
+    chart.classList.add("hidden");
+    noData.classList.remove("hidden");
+    totalSection.classList.add("hidden");
+  } else {
+    barChart.update();
+    chart.classList.remove("hidden");
+    noData.classList.add("hidden");
+    totalSection.classList.remove("hidden");
+  }
 }
 
 // ----------

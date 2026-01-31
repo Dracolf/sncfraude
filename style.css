@@ -234,6 +234,21 @@ h1 {
 }
 
 /* =========================
+   Remplacement du graphique si pas de données
+   ========================= */
+
+.noData {
+  display : flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  position: relative;
+  height: 400px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* =========================
    Cacher des éléments
    ========================= */
 .hidden {

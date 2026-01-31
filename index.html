@@ -56,22 +56,61 @@
         <h1>
             Les stats <span class="highlight">frauduleuses</span> de la SNCF  
             <br>
-            en région <strong>Occitanie</strong> sur l'année <span id="titleYear"></span> :
+            en région <strong><span id="titleRegion"></span></strong> sur l'année <span id="titleYear"></span> :
         </h1>
 
         <label for="regionSelect">Sélectionnez une région : </label>
-        <select name="regions" class="select" id="regionSelect"></select>
+        <select name="regions" class="select" id="regionSelect">
+            <optgroup label="Régions actuelles">
+                <option value="Auvergne-Rhône-Alpes">Auvergne-Rhône-Alpes</option>
+                <option value="Bourgogne-Franche-Comté">Bourgogne-Franche-Comté</option>
+                <option value="Bretagne">Bretagne</option>
+                <option value="Centre Val-de-Loire">Centre-Val de Loire</option>
+                <option value="Grand Est">Grand Est</option>
+                <option value="Hauts-de-France">Hauts-de-France</option>
+                <option value="Normandie">Normandie</option>
+                <option value="Nouvelle Aquitaine">Nouvelle-Aquitaine</option>
+                <option value="Occitanie" selected="selected">Occitanie</option>
+                <option value="Pays-de-la-Loire">Pays de la Loire</option>
+                <option value="Provence Alpes Côte d'Azur">Provence-Alpes-Côte d’Azur</option>
+            </optgroup>
+            <optgroup label="Anciennes régions">
+                <option value="Alsace">Alsace</option>
+                <option value="Aquitaine">Aquitaine</option>
+                <option value="Auvergne">Auvergne</option>
+                <option value="Basse Normandie">Basse-Normandie</option>
+                <option value="Bourgogne">Bourgogne</option>
+                <option value="Centre">Centre</option>
+                <option value="Champagne Ardenne">Champagne-Ardenne</option>
+                <option value="Franche Comté">Franche-Comté</option>
+                <option value="Haute Normandie">Haute-Normandie</option>
+                <option value="Languedoc Roussillon">Languedoc-Roussillon</option>
+                <option value="Limousin">Limousin</option>
+                <option value="Lorraine">Lorraine</option>
+                <option value="Midi Pyrénées">Midi-Pyrénées</option>
+                <option value="Nord Pas de Calais">Nord-Pas-de-Calais</option>
+                <option value="Picardie">Picardie</option>
+                <option value="Poitou Charentes">Poitou-Charentes</option>
+                <option value="Rhône Alpes">Rhône-Alpes</option>
+            </optgroup>
+        </select>
+
         <label for="yearSelect">Sélectionnez une année : </label>
         <select name="years" class="select" id="yearSelect"></select>
 
         <div class="chart-wrapper">
             <canvas id="barCanvas" aria-label="chart" role="img"></canvas>
         </div>
+        <div class="noData hidden">
+            <p>Aucune donnée disponible.</p>
+        </div>
 
-        <h2 class="highlight">TOTAL :</h2>
-        <p id="totalProg">Programmés : </p>
-        <p id="totalLate">En retard : </p>
-        <p id="totalCancel">Annulés : </p>
+        <div id="totalSection">
+            <h2 class="highlight">TOTAL :</h2>
+            <p id="totalProg">Programmés : </p>
+            <p id="totalLate">En retard : </p>
+            <p id="totalCancel">Annulés : </p>
+        </div>
     </main>
 
 
